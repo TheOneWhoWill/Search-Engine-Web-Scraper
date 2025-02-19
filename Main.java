@@ -1,4 +1,5 @@
 import static utils.URLHandler.normalizeURL;
+import static utils.embedding.OllamaStatusChecker.isModelInstalled;
 import static utils.embedding.OllamaStatusChecker.isOllamaRunning;
 
 public class Main {
@@ -11,6 +12,13 @@ public class Main {
 			System.out.println("Ollama is running...");
 		} else {
 			System.out.println("Ollama is not running on the host machine.");
+			return;
+		}
+
+		if (isModelInstalled("snowflake-arctic-embed2")) {
+			System.out.println("Snowflake Arctic Embedder is installed...");
+		} else {
+			System.out.println("Snowflake Arctic Embedder is NOT installed.");
 			return;
 		}
 
@@ -27,6 +35,7 @@ public class Main {
         System.out.println(normalizeURL(url5));
 
 		checkIfInClassPath("postgresql-42.7.5.jar");
+		checkIfInClassPath("gson-2.12.1.jar");
 	}
 
 	public static void checkIfInClassPath(String jar) {
