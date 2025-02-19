@@ -5,3 +5,5 @@ if not exist build mkdir build
 javac -d build Main.java
 REM Compile all.java files in the utils directory
 javac -d build -cp "modules/*" utils\*.java
+REM Run the Main class.  Adjust the classpath and Main class name if necessary.
+java -cp "build;modules/*" Main
