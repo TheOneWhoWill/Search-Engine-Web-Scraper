@@ -8,6 +8,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.stream.Collectors;
+
 import static utils.URLHandler.normalizeURL;
 
 public class PageScraper {
