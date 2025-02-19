@@ -15,6 +15,7 @@ public class OllamaStatusChecker {
 	private static final String HOST = "127.0.0.1";
 	private static final int PORT = 11434; // ollama uses this port
 	private static final String BASE_URL = "http://" + HOST + ":" + PORT;
+	private static final HttpClient client = HttpClient.newHttpClient();
 
 	public static boolean isOllamaRunning() {
 
@@ -27,7 +28,6 @@ public class OllamaStatusChecker {
 
 	public static boolean isModelInstalled(String modelName) {
 		try {
-			HttpClient client = HttpClient.newHttpClient();
 			HttpRequest request = HttpRequest.newBuilder()
 					.uri(URI.create(BASE_URL + "/api/tags"))
 					.GET()
