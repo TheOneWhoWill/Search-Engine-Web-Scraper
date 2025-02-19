@@ -1,9 +1,19 @@
 import static utils.URLHandler.normalizeURL;
+import static utils.embedding.OllamaStatusChecker.isOllamaRunning;
 
 public class Main {
 	private static final String CLASS_PATH = System.getProperty("java.class.path");
 
 	public static void main(String[] args) {
+		boolean ollamaRunning = isOllamaRunning();
+
+		if (ollamaRunning) {
+			System.out.println("Ollama is running...");
+		} else {
+			System.out.println("Ollama is not running on the host machine.");
+			return;
+		}
+
         String url1 = "https://www.example.com:80/path/to/page?param2=value2&param1=value1#fragment";
         String url2 = "http://www.example.com/path/to/page/";
         String url3 = "http://www.www.example.com/path/to/page";
