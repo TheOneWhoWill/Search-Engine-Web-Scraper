@@ -1,25 +1,27 @@
-package utils.crawler;
+package utils.pages;
 
-import java.sql.*;
+import java.sql.Timestamp;
 
 public class WebPage {
-	private int id;
 	private String url;
 	private String title;
-	private String content;
+	private String description;
+	private String author;
+	private String language = "en";
+	private PageType type;
 	private double pageRank;
 	private float[] embedding;
-	private Timestamp createdAt;
+	private Timestamp crawledAt;
 	private Timestamp updatedAt;
 
 	// Constructor for new page
-	public WebPage(String url, String title, String content, float[] embedding) {
+	public WebPage(String url, String title, String description, float[] embedding) {
 		this.url = url;
 		this.title = title;
-		this.content = content;
+		this.description = description;
 		this.pageRank = 1.0;
 		this.embedding = embedding;
-		this.createdAt = new Timestamp(System.currentTimeMillis());
+		this.crawledAt = new Timestamp(System.currentTimeMillis());
 		this.updatedAt = new Timestamp(System.currentTimeMillis());
 	}
 
@@ -69,12 +71,12 @@ public class WebPage {
 		this.updatedAt = updatedAt;
 	}
 
-	public Timestamp getCreatedAt() {
-		return createdAt;
+	public Timestamp getCrawledAt() {
+		return crawledAt;
 	}
 
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
+	public void setCrawledAt(Timestamp crawledAt) {
+		this.crawledAt = crawledAt;
 	}
 
 	public float[] getEmbedding() {
@@ -93,12 +95,12 @@ public class WebPage {
 		this.pageRank = pageRank;
 	}
 
-	public String getContent() {
-		return content;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getTitle() {

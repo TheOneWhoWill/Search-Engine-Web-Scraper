@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.stream.Collectors;
 
 import static utils.URLHandler.normalizeURL;
+import utils.pages.WebPage;
 
 public class PageScraper {
 	private static final int MAX_REDIRECTS = 5;
